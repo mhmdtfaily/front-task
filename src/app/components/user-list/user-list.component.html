@@ -5,3 +5,5 @@
         <p>ID: {{ user.id }}</p>
     </div>
 </div>
+<button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+<button (click)="nextPage()">Next</button>
