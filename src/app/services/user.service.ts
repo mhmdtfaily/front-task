@@ -29,4 +29,20 @@ export class UserService {
       )
     );
   }
+
+  getUser(id: number): Observable<User> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<any>(url).pipe(
+      map((response) => response.data as any),
+      map(
+        (user) =>
+          ({
+            id: user.id,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            avatar: user.avatar,
+          } as User)
+      )
+    );
+  }
 }
