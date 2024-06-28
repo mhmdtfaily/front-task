@@ -10,6 +10,7 @@ import { User } from 'src/models/user.model';
 })
 export class UserDetailsComponent implements OnInit {
   user?: User;
+  loading: boolean = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +24,7 @@ export class UserDetailsComponent implements OnInit {
         (user) => {
           console.log(user);
           this.user = user;
+          this.loading = false;
         },
         (error) => {
           console.error('Error fetching user details: ', error);

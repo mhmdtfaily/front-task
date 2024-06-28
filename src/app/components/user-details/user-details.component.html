@@ -1,4 +1,4 @@
-<div *ngIf="user" class="user-details">
+<div *ngIf="user && !loading" class="user-details">
     <p [routerLink]="['/']">back</p>
     <h2>User Details</h2>
     <div class="card">
@@ -9,3 +9,4 @@
         </div>
     </div>
 </div>
+<div *ngIf="loading">loading....</div>
