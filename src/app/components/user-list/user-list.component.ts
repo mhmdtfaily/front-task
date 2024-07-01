@@ -12,6 +12,7 @@ export class UserListComponent implements OnInit {
   users: User[] = [];
   filteredUsers: User[] = [];
   currentPage = 1;
+  loading: boolean = true;
 
   constructor(
     private userService: UserService,
@@ -22,6 +23,7 @@ export class UserListComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       const query = params['search'] || '';
       this.loadUsers(query);
+      this.loading = false;
     });
   }
 
@@ -38,7 +40,6 @@ export class UserListComponent implements OnInit {
   }
 
   filterUsers(query: string): void {
-    debugger;
     if (!query) {
       this.filteredUsers = this.users;
       return;

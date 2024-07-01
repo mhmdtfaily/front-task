@@ -1,12 +1,11 @@
-<div *ngIf="user && !loading" class="user-details">
-    <p [routerLink]="['/']">back</p>
-    <h2>User Details</h2>
-    <div class="card">
-        <img [src]="user.avatar" alt="Avatar">
-        <div class="container">
-            <h4><b>{{ user.first_name }} {{ user.last_name }}</b></h4>
-            <p>ID: {{ user.id }}</p>
+<div *ngIf="user && !loading" class="user-details d-flex justify-content-center align-items-center mt-5">
+    <div class="card text-center shadow-lg" style="width: 18rem; border-radius: 10px;">
+        <img [src]="user.avatar" class="card-img-top rounded-circle mt-3" alt="Avatar" style="width: 150px; height: 150px; object-fit: cover; margin: 0 auto;">
+        <div class="card-body">
+            <h5 class="card-title font-weight-bold">{{ user.first_name }} {{ user.last_name }}</h5>
+            <p class="card-text text-muted">ID: {{ user.id }}</p>
+            <a [routerLink]="['/']" class="btn btn-primary">Back</a>
         </div>
     </div>
 </div>
-<div *ngIf="loading">loading....</div>
+<div *ngIf="loading" class="loading-bar"></div>
